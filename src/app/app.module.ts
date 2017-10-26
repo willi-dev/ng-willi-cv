@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AuthService } from './providers/auth.service';
 
@@ -40,7 +43,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initialize( firebaseConfig ),
+    AngularFireModule.initializeApp( firebaseConfig ),
     RouterModule.forRoot( routes ),
     AngularFireDatabaseModule,
     AngularFireAuthModule

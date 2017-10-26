@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import * firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
@@ -35,6 +36,13 @@ export class AuthService {
 						}
 					}
 				);
+  }
+
+  /*
+   * setLoginState
+   */
+  setLoginState( state: boolean ){
+  	this.isLoggedIn = state;
   }
 
   /*
