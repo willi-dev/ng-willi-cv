@@ -1,3 +1,32 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<ul>
+				<li>
+					<a routerLink="work">Work Experiences</a>
+				</li>
+				<li>
+					<a routerLink="projects">Projects</a>
+				</li>
+				<li>
+					<a routerLink="educations">Education</a>
+				</li>
+				<li>
+					<a routerLink="publication">Publication & Research</a>
+				</li>
+				<li>
+					<a routerLink="training">Training</a>
+				</li>
+			</ul>
+			<button class="btn btn-warning" (click)="logout()">Logout</button>	
+		</div>
+
+		<div class="col-md-8">
+			<router-outlet></router-outlet>
+		</div>	
+	</div>
+	
+	
+
+</div>

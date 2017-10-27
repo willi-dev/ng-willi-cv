@@ -16,6 +16,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { CvComponent } from './components/cv/cv.component';
+import { ProjectsComponent } from './components/dashboard/projects/projects.component';
+import { WorkComponent } from './components/dashboard/work/work.component';
+import { TrainingComponent } from './components/dashboard/training/training.component';
+import { EducationsComponent } from './components/dashboard/educations/educations.component';
+import { PublicationComponent } from './components/dashboard/publication/publication.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
@@ -29,6 +34,36 @@ export const firebaseConfig = {
 const routes: Routes = [
   { path: '', component: CvComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', 
+    component: DashboardComponent, 
+    children: [
+      {
+        path: '',
+        redirectTo: '/dashboard/work',
+        pathMatch: 'full'
+      },
+      {
+        path: 'work',
+        component: WorkComponent
+      },
+      {
+        path: 'projects',
+        component: ProjectsComponent
+      },
+      {
+        path: 'educations',
+        component: EducationsComponent
+      },
+      {
+        path: 'training',
+        component: TrainingComponent
+      },
+      {
+        path: 'publication',
+        component: PublicationComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
@@ -37,7 +72,12 @@ const routes: Routes = [
     HeaderComponent,
     DashboardComponent,
     LoginComponent,
-    CvComponent
+    CvComponent,
+    ProjectsComponent,
+    WorkComponent,
+    TrainingComponent,
+    EducationsComponent,
+    PublicationComponent
   ],
   imports: [
     BrowserModule,

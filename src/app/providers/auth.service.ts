@@ -30,9 +30,11 @@ export class AuthService {
 						if( auth == null ){
 							this.router.navigate(['login']);
 							this.setLoginState( false );
+							console.log( 'login state false' );
 						}else{
-							this.router.navigate(['']);
+							this.router.navigate(['dashboard']);
 							this.setLoginState( true );
+							console.log( 'login state true' );
 						}
 					}
 				);
