@@ -8,9 +8,10 @@ import { AuthService } from '../../providers/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor( private authService: AuthService ) { }
+  constructor( private authService: AuthService ) {}
 
   ngOnInit() {
+    console.log( this.authService.isLoggedIn );  
   }
 
    /*

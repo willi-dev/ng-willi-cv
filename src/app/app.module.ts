@@ -22,6 +22,8 @@ import { TrainingComponent } from './components/dashboard/training/training.comp
 import { EducationsComponent } from './components/dashboard/educations/educations.component';
 import { PublicationComponent } from './components/dashboard/publication/publication.component';
 
+import { AuthGuard } from './providers/auth-guard.service';
+
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
   authDomain: 'ng-willi-cv.firebaseapp.com',
@@ -36,6 +38,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', 
     component: DashboardComponent, 
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -88,7 +91,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

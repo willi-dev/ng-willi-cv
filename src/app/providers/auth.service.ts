@@ -15,8 +15,26 @@ export class AuthService {
 	public items: FirebaseListObservable<any[]>;
 	public messages: FirebaseListObservable<any[]>;
 
+  public state: string = '';
+  public error: any = '';
+
   constructor( public afAuth: AngularFireAuth, private router: Router ) {
-  	this.user = afAuth.authState;
+  	
+  }
+
+  loginRoute(){
+    this.afAuth
+      .authState
+        .subscribe(
+          (auth) => {
+            if( auth == null ){
+              this.router.navigate(['login']);
+            }else{
+              this.router.navigate(['dashboard']);
+              this.error = '';
+            }
+          }
+        );
   }
 
   /*
@@ -28,11 +46,11 @@ export class AuthService {
 				.subscribe(
 					(auth) => {
 						if( auth == null ){
-							this.router.navigate(['login']);
+							// this.router.navigate(['login']);
 							this.setLoginState( false );
 							console.log( 'login state false' );
 						}else{
-							this.router.navigate(['dashboard']);
+							// this.router.navigate(['dashboard']);
 							this.setLoginState( true );
 							console.log( 'login state true' );
 						}
@@ -40,11 +58,27 @@ export class AuthService {
 				);
   }
 
+  routeLoginState(){
+    if( this.getLoginState() ){
+      this.router.navigate(['dashboard']);
+    }else{
+      this.router.navigate(['login']);
+    }
+  }
+
   /*
    * setLoginState
    */
   setLoginState( state: boolean ){
   	this.isLoggedIn = state;
+    this.error = '';
+  }
+
+  /*
+   * getLoginState
+   */ 
+  getLoginState(){
+    return this.isLoggedIn;
   }
 
   /*
@@ -63,12 +97,43 @@ export class AuthService {
   }
 
   /*
+   * login with email and password
+   */
+  loginEmail(formData){
+    if( formData.valid ){
+      console.log( formData.value );
+      this.afAuth.auth.signInWithEmailAndPassword(
+        formData.value.useremail,
+        formData.value.userpassword
+      ).then(
+        (success) => {
+          console.log( success );
+          this.setLoginState( true );
+          this.router.navigate(['/dashboard']);
+        }
+      ).catch(
+        (error) => {
+          console.error( 'error : ' + error );
+          this.setLoginState( false );
+          this.error = error;
+        }
+      )
+    }else{
+
+    }
+  }
+
+  /*
    * logout
    */
   logout(){
-  	return this.afAuth
-  		.auth
-  			.signOut();
+    this.afAuth
+      .auth 
+        .signOut();
+    console.log( 'logged out' );
+    this.router.navigateByUrl('/login');
   }
+
+  
 
 }

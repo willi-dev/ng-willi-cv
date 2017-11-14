@@ -1,28 +1,31 @@
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-4">
-			<ul>
-				<li>
+		<div class="col-md-3">
+			<ul class="list-group sidebar-menu__dashboard">
+			  <li class="list-group-item">
 					<a routerLink="work">Work Experiences</a>
-				</li>
-				<li>
-					<a routerLink="projects">Projects</a>
-				</li>
-				<li>
+			  </li>
+			  <li class="list-group-item">
+			  	<a routerLink="projects">Projects</a>
+			  </li>
+			  <li class="list-group-item">
 					<a routerLink="educations">Education</a>
-				</li>
-				<li>
+			  </li>
+			  <li class="list-group-item">
 					<a routerLink="publication">Publication & Research</a>
-				</li>
-				<li>
-					<a routerLink="training">Training</a>
-				</li>
+			  </li>
+			  <li class="list-group-item">
+			  	<a routerLink="training">Training</a>
+			  </li>
+			  <li class="list-group-item">
+			  	<a  href="javascript:void(0)" (click)="this.authService.logout()">Logout</a>
+			  </li>
 			</ul>
-			<button class="btn btn-warning" (click)="logout()">Logout</button>	
+			
 		</div>
 
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<router-outlet></router-outlet>
 		</div>	
 	</div>
