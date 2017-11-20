@@ -2,6 +2,9 @@
 	<div class="row">
 		<div class="col-md-3">
 			<ul class="list-group sidebar-menu__dashboard">
+				<li class="list-group-item">
+					<a routerLink="personal-detail">Personal Detail</a>
+				</li>
 			  <li class="list-group-item">
 					<a routerLink="work">Work Experiences</a>
 			  </li>
@@ -12,10 +15,13 @@
 					<a routerLink="educations">Education</a>
 			  </li>
 			  <li class="list-group-item">
-					<a routerLink="publication">Publication & Research</a>
+			  	<a routerLink="skill">Skill</a>
 			  </li>
 			  <li class="list-group-item">
 			  	<a routerLink="training">Training</a>
+			  </li>
+			  <li class="list-group-item">
+					<a routerLink="publication">Publication & Research</a>
 			  </li>
 			  <li class="list-group-item">
 			  	<a  href="javascript:void(0)" (click)="this.authService.logout()">Logout</a>

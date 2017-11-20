@@ -6,7 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthService } from './providers/auth.service';
 import { AuthGuard } from './providers/auth-guard.service';
+
 import { WorkService } from './providers/work.service';
+import { ProjectsService } from './providers/projects.service';
+import { EducationService } from './providers/education.service';
+import { PublicationService } from './providers/publication.service';
+import { TrainingService } from './providers/training.service'; 
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -23,6 +28,8 @@ import { WorkComponent } from './components/dashboard/work/work.component';
 import { TrainingComponent } from './components/dashboard/training/training.component';
 import { EducationsComponent } from './components/dashboard/educations/educations.component';
 import { PublicationComponent } from './components/dashboard/publication/publication.component';
+import { SkillComponent } from './components/dashboard/skill/skill.component';
+import { PersonalDetailComponent } from './components/dashboard/personal-detail/personal-detail.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
@@ -46,6 +53,10 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'personal-detail',
+        component: PersonalDetailComponent
+      },
+      {
         path: 'work',
         component: WorkComponent
       },
@@ -56,6 +67,10 @@ const routes: Routes = [
       {
         path: 'educations',
         component: EducationsComponent
+      },
+      {
+        path: 'skill',
+        component: SkillComponent
       },
       {
         path: 'training',
@@ -80,7 +95,9 @@ const routes: Routes = [
     WorkComponent,
     TrainingComponent,
     EducationsComponent,
-    PublicationComponent
+    PublicationComponent,
+    SkillComponent,
+    PersonalDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -94,8 +111,12 @@ const routes: Routes = [
   providers: [
     AuthService, 
     AuthGuard, 
+    AngularFireDatabase,
     WorkService, 
-    AngularFireDatabase
+    ProjectsService,
+    EducationService,
+    PublicationService,
+    TrainingService,
   ],
   bootstrap: [AppComponent]
 })
