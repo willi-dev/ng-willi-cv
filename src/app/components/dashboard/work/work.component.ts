@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Work } from './work';
 import { WorkService } from '../../../providers/work.service';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';

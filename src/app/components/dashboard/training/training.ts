@@ -1,6 +1,6 @@
 export class Training {
 	$key: string;
-	training: string;
+	name: string;
 	place: string;
 	year: string;
 }

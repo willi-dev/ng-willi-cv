@@ -1,22 +1,21 @@
-
 <h1 class="display-4">Training</h1>
 <hr>
 
 <form>
   <div class="form-group">
-    <label for="education-school">Training Name</label>
-    <input type="text" class="form-control" id="training-name" placeholder="Example: Pelatihan dasar action script 2.0">
+    <label for="training-name">Training Name</label>
+    <input type="text" [(ngModel)]="training.name" [ngModelOptions]="{standalone: true}" class="form-control" id="training-name" placeholder="Example: Pelatihan dasar action script 2.0">
   </div>
   <div class="form-group">
-    <label for="education-period">Training Place</label>
-    <input type="text" class="form-control" id="training-place" placeholder="Example: Ilmu Komputer UPI Bandung">
+    <label for="training-place">Training Place</label>
+    <input type="text" [(ngModel)]="training.place" [ngModelOptions]="{standalone: true}" class="form-control" id="training-place" placeholder="Example: Ilmu Komputer UPI Bandung">
   </div>
   <div class="form-group">
-    <label for="education-period">Year</label>
-    <input type="text" class="form-control" id="training-year" placeholder="Example: 2012">
+    <label for="training-year">Year</label>
+    <input type="text" [(ngModel)]="training.year" [ngModelOptions]="{standalone: true}" class="form-control" id="training-year" placeholder="Example: 2012">
   </div>
   <div class="form-group">
-  	<button class="btn btn-default">
+  	<button class="btn btn-default" type="submit" (click)="createTraining()">
   		Submit
   	</button>
   </div>
