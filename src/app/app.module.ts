@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AuthService } from './providers/auth.service';
+import { AuthGuard } from './providers/auth-guard.service';
+import { WorkService } from './providers/work.service';
 
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,8 +23,6 @@ import { WorkComponent } from './components/dashboard/work/work.component';
 import { TrainingComponent } from './components/dashboard/training/training.component';
 import { EducationsComponent } from './components/dashboard/educations/educations.component';
 import { PublicationComponent } from './components/dashboard/publication/publication.component';
-
-import { AuthGuard } from './providers/auth-guard.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
@@ -89,9 +89,14 @@ const routes: Routes = [
     AngularFireModule.initializeApp( firebaseConfig ),
     RouterModule.forRoot( routes ),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService, 
+    AuthGuard, 
+    WorkService, 
+    AngularFireDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

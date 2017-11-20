@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Work } from './work';
+import { WorkService } from '../../../providers/work.service';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'app-work',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkComponent implements OnInit {
 
-  constructor() { }
+	work: Work = new Work();
+
+	public works: FirebaseListObservable<Work[]>;
+
+  constructor( private workService: WorkService ) { }
 
   ngOnInit() {
+  	this.works = this.workService.getListWork();
+  	console.log( this.works );
+  }
+
+  createWork(){
+  	this.workService.createWork(this.work);
+  	this.work = new Work();
+  }
+
+  deleteWork(key) {
+  	console.log( key );
+  	this.workService.deleteWork( key );
   }
 
 }

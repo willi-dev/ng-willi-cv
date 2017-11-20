@@ -58,27 +58,12 @@ export class AuthService {
 				);
   }
 
-  routeLoginState(){
-    if( this.getLoginState() ){
-      this.router.navigate(['dashboard']);
-    }else{
-      this.router.navigate(['login']);
-    }
-  }
-
   /*
    * setLoginState
    */
   setLoginState( state: boolean ){
   	this.isLoggedIn = state;
     this.error = '';
-  }
-
-  /*
-   * getLoginState
-   */ 
-  getLoginState(){
-    return this.isLoggedIn;
   }
 
   /*
