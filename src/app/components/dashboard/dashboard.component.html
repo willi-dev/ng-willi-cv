@@ -1,36 +1,36 @@
-<div class="container-fluid">
+<div class="container-fluid" [class.container-hidden]="menuOpen">
 	<div class="row">
-		<div class="col-md-3">
-			<ul class="list-group sidebar-menu__dashboard">
-				<li class="list-group-item">
+		<div class="side-menu side-menu__offcanvas" [class.side-menu--open]="menuOpen">
+			<ul class="side-menu__dashboard">
+				<li class="side-menu__item">
 					<a routerLink="personal-detail">Personal Detail</a>
 				</li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 					<a routerLink="work">Work Experiences</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 			  	<a routerLink="projects">Projects</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 					<a routerLink="educations">Education</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 			  	<a routerLink="skill">Skill</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 			  	<a routerLink="training">Training</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 					<a routerLink="publication">Publication & Research</a>
 			  </li>
-			  <li class="list-group-item">
+			  <li class="side-menu__item">
 			  	<a  href="javascript:void(0)" (click)="this.authService.logout()">Logout</a>
 			  </li>
 			</ul>
-			
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-md-12 main-content" [class.main-content--resize]="menuOpen">
+			 <span class="open-menu	" (click)="menuOpen = !menuOpen;">&#9776;</span>
 			<router-outlet></router-outlet>
 		</div>	
 	</div>

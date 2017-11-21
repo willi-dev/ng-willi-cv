@@ -17,7 +17,8 @@ export class WorkComponent implements OnInit {
   constructor( private workService: WorkService ) { }
 
   ngOnInit() {
-  	this.works = this.workService.getListWork();
+  	this.works = this.workService.getListWork({ orderByKey: true })
+  		.map((array) => {return  array.reverse() }) as FirebaseListObservable<Work[]>;
   	console.log( this.works );
   }
 

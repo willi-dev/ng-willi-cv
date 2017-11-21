@@ -1,14 +1,47 @@
 @import '../../../assets/scss/_variables.scss';
 
-
-.sidebar-menu__dashboard{
-	// list-style: none;
-	// padding-left: 0;
-	margin-top: 15px;
-	// li{
-	// 	padding:10px 20px;
-	// }
-	a{
-		color: $black;
+.container-fluid{
+	&.container-hidden{
+		overflow-x: hidden;
 	}
+}
+
+.side-menu{
+
+	&__offcanvas{
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		transition: width .3s;
+		display: none;
+	}
+
+	&--open{
+		display: block;
+		width: 20%;
+	}
+
+	&__dashboard{
+		list-style: none;
+		margin-top: 85px;
+		a{
+			color: $white;
+		}
+	}
+	
+	
+}
+.main-content{
+	padding: 0 40px;
+	transition: margin-left .3s;
+	
+	&--resize{
+		max-width: 80%;
+		margin-left: 20%;
+	}
+
 }

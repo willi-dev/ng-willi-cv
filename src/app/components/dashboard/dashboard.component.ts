@@ -8,11 +8,14 @@ import { AuthService } from '../../providers/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
+  menuOpen: false;
+
   constructor( private authService: AuthService ) {}
 
   ngOnInit() {
     console.log( this.authService.isLoggedIn );  
-    console.log( "test console log dari dashboard component " )
+    console.log( "test console log dari dashboard component " );
+    console.log( this.menuOpen );
   }
 
    /*
