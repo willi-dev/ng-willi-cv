@@ -35,6 +35,11 @@ export class SkillService {
   		.then( error => this.handleError( error ));
   }
 
+  updateSkill( key: string, value: any ): void {
+    this.skills.update( key, value )
+      .catch( error => this.handleError(error));
+  }
+
   deleteSkill( key : string ): void {
   	this.skills.remove( key )
   		.catch( error => this.handleError( error ));
