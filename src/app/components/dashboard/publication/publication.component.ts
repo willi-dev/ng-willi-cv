@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Publication } from './publication';
+import { PublicationService } from '../../../providers/publication.service';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'app-publication',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationComponent implements OnInit {
 
-  constructor() { }
+	publication: Publication = new Publication();
+
+	public publications: FirebaseListObservable<Publication[]>;
+
+  constructor( private publicationService: PublicationService ) { }
 
   ngOnInit() {
+  	this.publications = this.publicationService.getListPublication();
+  }
+
+  createPublication(){
+  	this.publicationService.createPublication(this.publication);
+  	this.publication = new Publication();
+  }
+
+  deletePublication(key){
+  	this.publicationService.deletePublication(key);
   }
 
 }

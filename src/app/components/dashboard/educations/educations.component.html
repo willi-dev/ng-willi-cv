@@ -5,22 +5,45 @@
 <form>
   <div class="form-group">
     <label for="education-school">School</label>
-    <input type="text" class="form-control" id="education-school" placeholder="Example: SMA Negeri 19 Bandung">
+    <input type="text" [(ngModel)]="education.school" [ngModelOptions]="{standalone: true}" class="form-control" id="education-school" placeholder="Example: SMA Negeri 19 Bandung">
   </div>
   <div class="form-group">
     <label for="education-period">Education Period</label>
-    <input type="text" class="form-control" id="education-period" placeholder="Example: January 2016 - February 2017">
+    <input type="text" [(ngModel)]="education.period" [ngModelOptions]="{standalone: true}" class="form-control" id="education-period" placeholder="Example: January 2016 - February 2017">
   </div>
   
   <div class="form-group">
     <label for="education-description">Education Description</label>
-    <textarea class="form-control" id="work-description" rows="3"></textarea>
+    <textarea [(ngModel)]="education.description" [ngModelOptions]="{standalone: true}" class="form-control" id="work-description" rows="3"></textarea>
   </div>
   <div class="form-group">
-  	<button class="btn btn-default">
+  	<button class="btn btn-default" type="submit" (click)="createEducation()">
   		Submit
   	</button>
   </div>
 </form>
 
 <hr>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">School</th>
+      <th scope="col">Period</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of educations | async">
+      <th scope="row"></th>
+      <td>{{e.school}}</td>
+      <td>{{e.period}}</td>
+      <td>{{e.description}}</td>
+      <td>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>

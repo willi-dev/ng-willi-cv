@@ -1,28 +1,45 @@
-
 <h1 class="display-4 dashboard-title">Projects</h1>
 <hr>
-
 <form>
   <div class="form-group">
     <label for="project-name">Project Name</label>
-    <input type="text" class="form-control" id="project-name" placeholder="Example: Website Company Profile">
+    <input type="text" [(ngModel)]="project.project" [ngModelOptions]="{standalone: true}" class="form-control" id="project-name" placeholder="Example: Website Company Profile">
   </div>
   <div class="form-group">
     <label for="project-company">Company</label>
-    <input type="text" class="form-control" id="project-company" placeholder="Example: Mirum Agency">
+    <input type="text" [(ngModel)]="project.company" [ngModelOptions]="{standalone: true}" class="form-control" id="project-company" placeholder="Example: Mirum Agency">
   </div>
   <div class="form-group">
     <label for="project-period">Project Period</label>
-    <input type="text" class="form-control" id="project-period" placeholder="Example: January 2016 - February 2017">
+    <input type="text" [(ngModel)]="project.period" [ngModelOptions]="{standalone: true}" class="form-control" id="project-period" placeholder="Example: January 2016 - February 2017">
   </div>
   
   <div class="form-group">
     <label for="project-description">Project Description</label>
-    <textarea class="form-control" id="project-description" rows="3"></textarea>
+    <textarea [(ngModel)]="project.description" [ngModelOptions]="{standalone: true}" class="form-control" id="project-description" rows="3"></textarea>
   </div>
   <div class="form-group">
-  	<button class="btn btn-default">
+  	<button class="btn btn-default" type="submit" (click)="createProject()">
   		Submit
   	</button>
   </div>
 </form>
+<hr>
+
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6" *ngFor="let p of projects | async">
+      <div class="card mb-3" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title">{{p.project}}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{p.company}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{p.period}}</h6>
+          <p class="card-text">
+            {{p.description}}
+          </p>
+          <a class="card-link" (click)="deleteWork(w.$key)">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

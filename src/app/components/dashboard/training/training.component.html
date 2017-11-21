@@ -22,3 +22,27 @@
 </form>
 
 <hr>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Training</th>
+      <th scope="col">Organizers / Place</th>
+      <th scope="col">Year</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of trainings | async">
+      <th scope="row"></th>
+      <td>{{t.name}}</td>
+      <td>{{t.place}}</td>
+      <td>{{t.year}}</td>
+      <td>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
