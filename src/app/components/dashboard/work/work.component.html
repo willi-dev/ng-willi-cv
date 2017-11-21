@@ -30,24 +30,28 @@
 <hr>
 
 <div class="col-md-12">
-  <table class="table">
-    <tr>
-      <th>Position</th>
-      <th>Company</th>
-      <th>Period</th>
-      <th>Description</th>
-      <th>Action</th>
-    </tr>
-    <tr *ngFor="let w of works | async">
-      <td>{{w.position}}</td>
-      <td>{{w.company}}</td>
-      <td>{{w.periode}}</td>
-      <td>{{w.description}}</td>
-      <td>
-        <button class="btn btn-default" (click)="deleteWork(w.$key)">
-          Delete
-        </button>
-      </td>
-    </tr>
-  </table>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let w of works | async"> 
+      <div class="card mb-3" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title">{{w.position}}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{w.company}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{w.periode}}</h6>
+          <p class="card-text">
+            {{w.description}}
+          </p>
+          <a href="#" class="card-link">Card link</a>
+          <a class="card-link" (click)="deleteWork(w.$key)">Delete</a>
+        </div>
+      </div>
+      
+     <!-- 
+      
+      
+      <button class="btn btn-default" >
+          
+        </button> -->
+  </div>
+ 
+  </div>
 </div>

@@ -13,9 +13,7 @@ export class DashboardComponent implements OnInit {
   constructor( private authService: AuthService ) {}
 
   ngOnInit() {
-    console.log( this.authService.isLoggedIn );  
-    console.log( "test console log dari dashboard component " );
-    console.log( this.menuOpen );
+    console.log( this.authService.isLoggedIn );
   }
 
    /*

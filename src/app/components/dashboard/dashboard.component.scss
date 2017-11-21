@@ -16,7 +16,7 @@
 		top: 0;
 		left: 0;
 		background-color: #111;
-		transition: width .3s;
+		transition: display .6s;
 		display: none;
 	}
 
@@ -36,7 +36,7 @@
 	
 }
 .main-content{
-	padding: 0 40px;
+	padding: 20px 60px;
 	transition: margin-left .3s;
 	
 	&--resize{

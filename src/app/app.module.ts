@@ -30,6 +30,7 @@ import { EducationsComponent } from './components/dashboard/educations/education
 import { PublicationComponent } from './components/dashboard/publication/publication.component';
 import { SkillComponent } from './components/dashboard/skill/skill.component';
 import { PersonalDetailComponent } from './components/dashboard/personal-detail/personal-detail.component';
+import { MainProfileComponent } from './components/dashboard/main-profile/main-profile.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
@@ -51,6 +52,10 @@ const routes: Routes = [
         path: '',
         redirectTo: '/dashboard/work',
         pathMatch: 'full'
+      },
+      {
+        path:  'main-profile',
+        component: MainProfileComponent
       },
       {
         path: 'personal-detail',
@@ -97,7 +102,8 @@ const routes: Routes = [
     EducationsComponent,
     PublicationComponent,
     SkillComponent,
-    PersonalDetailComponent
+    PersonalDetailComponent,
+    MainProfileComponent
   ],
   imports: [
     BrowserModule,
