@@ -35,10 +35,7 @@
 </div>
 
 <div *ngIf="(personalDetails | async)?.length > 0">
-	
 		<div *ngFor="let pd of personalDetails | async">
-			
-
 			<!-- form editor when edit value of personal detail -->
 			<div *ngIf="formEdit">
 				<h2 class="lead">Edit Personal Detail</h2>
@@ -75,12 +72,10 @@
 						</button>
 				  </div>
 				</form>
-				
 			</div>
 			<!-- end form editor -->
 
 			<div *ngIf="!formEdit">
-				
 				<div class="row personal-detail__row mt-md-5">
 					<div class="col-md-6 personal-detail__col--left">
 						<h3>Place of Birth</h3>
@@ -115,11 +110,6 @@
 						Edit
 					</button>	
 				</div>
-				
 			</div>
-
 		</div>
-
 </div>
-
-
