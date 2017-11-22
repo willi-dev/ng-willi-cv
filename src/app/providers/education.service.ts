@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Educations } from '../components/dashboard/educations/educations';
+import { MessageService } from './message.service';
 
 @Injectable()
 export class EducationService {
@@ -13,7 +14,7 @@ export class EducationService {
 	education: FirebaseObjectObservable<Educations> = null;
 	educations: FirebaseListObservable<Educations[]> = null;
  
-  constructor( private db: AngularFireDatabase ) {
+  constructor( private db: AngularFireDatabase, private m: MessageService ) {
   	this.educations = this.db.list( this.basePath );
   }
 
@@ -21,8 +22,8 @@ export class EducationService {
    * getEducation
    * @return this.education
    */
-  getEducation(): FirebaseObjectObservable<Educations> {
-  	const educationsPath = `${this.basePath}/$key`;
+  getEducation( key: string): FirebaseObjectObservable<Educations> {
+  	const educationsPath = `${this.basePath}/${key}`;
   	this.education = this.db.object(educationsPath);
   	return this.education;
   }
@@ -44,7 +45,7 @@ export class EducationService {
    */
   createEducation( education: Educations ): void{
   	this.educations.push( education )
-  		.then( error => this.handleError( error ))
+  		.then( error => this.m.handleError( error ))
   }
 
   /**
@@ -53,7 +54,7 @@ export class EducationService {
    */
   updateEducation(key: string, value: any): void{
   	this.educations.update(key, value)
-  		.catch( error => this.handleError(error))
+  		.catch( error => this.m.handleError(error))
   }
 
   /**
@@ -62,7 +63,7 @@ export class EducationService {
    */
   deleteEducation( key: string ): void{
   	this.educations.remove( key )
-  		.catch( error => this.handleError(error))
+  		.catch( error => this.m.handleError(error))
   }
 
   /**
@@ -71,14 +72,7 @@ export class EducationService {
    */
   deleteAllEducations(): void{
   	this.educations.remove()
-  		.catch( error => this.handleError(error))
-  }
-
-  /**
-   * handleError
-   */
-  private handleError(error){
-  	console.log( error );
+  		.catch( error => this.m.handleError(error))
   }
 
 }

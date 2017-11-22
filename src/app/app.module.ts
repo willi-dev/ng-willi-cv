@@ -7,11 +7,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './providers/auth.service';
 import { AuthGuard } from './providers/auth-guard.service';
 
+import { MainprofileService } from './providers/mainprofile.service';
+import { PersonaldetailService } from './providers/personaldetail.service';
 import { WorkService } from './providers/work.service';
 import { ProjectsService } from './providers/projects.service';
 import { EducationService } from './providers/education.service';
 import { PublicationService } from './providers/publication.service';
 import { TrainingService } from './providers/training.service'; 
+import { MessageService } from './providers/message.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -115,9 +118,12 @@ const routes: Routes = [
     AngularFireAuthModule,
   ],
   providers: [
+    MessageService,
     AuthService, 
     AuthGuard, 
     AngularFireDatabase,
+    MainprofileService,
+    PersonaldetailService,
     WorkService, 
     ProjectsService,
     EducationService,

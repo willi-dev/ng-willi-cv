@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/_variables.scss';
+
+
+.personal-detail{
+
+	&__row{
+		
+	}
+
+	&__col{
+
+		&--left{
+			text-align: right;
+		}
+
+		&--right{
+			text-align: left;
+
+		}
+	}
+
+	&__row-edit{
+		text-align: center;
+	}
+}

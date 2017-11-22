@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Work } from '../components/dashboard/work/work';
+import { MessageService } from './message.service';
 
 @Injectable()
 export class WorkService {
@@ -13,7 +14,7 @@ export class WorkService {
 	work: FirebaseObjectObservable<Work> = null;
 	works: FirebaseListObservable<Work[]> = null;
 
-  constructor( private db: AngularFireDatabase ) { 
+  constructor( private db: AngularFireDatabase, private m: MessageService ) { 
     this.works = this.db.list(this.basePath);
   }
 
@@ -22,7 +23,7 @@ export class WorkService {
    * @return this.work
    */
   getWork(key: string): FirebaseObjectObservable<Work> {
-  	const workPath = `${this.basePath}/$key`;
+  	const workPath = `${this.basePath}/${key}`;
   	this.work = this.db.object(workPath);
   	return this.work;
   }
@@ -44,7 +45,7 @@ export class WorkService {
    */
   createWork(work: Work): void{
   	this.works.push(work)
-      .then(error=> this.handleError(error))
+      .then(error=> this.m.handleError(error))
   }
 
   /**
@@ -53,7 +54,7 @@ export class WorkService {
    */
   updateWork(key: string, value: any): void{
   	this.works.update(key, value)
-  		.catch(error => this.handleError(error))
+  		.catch(error => this.m.handleError(error))
   }
 
   /**
@@ -63,7 +64,7 @@ export class WorkService {
   deleteWork( key: string ): void{
     console.log( "key: " + key );
   	this.works.remove( key )
-  		.catch(error => this.handleError(error))
+  		.catch(error => this.m.handleError(error))
   }
 
   /**
@@ -72,14 +73,7 @@ export class WorkService {
    */
   deleteAllWork(): void{
   	this.works.remove()
-  		.catch(error => this.handleError(error))
-  }
-
-  /**
-   * handleError
-   */
-  private handleError(error){
-  	console.log( error );
+  		.catch(error => this.m.handleError(error))
   }
 
 }

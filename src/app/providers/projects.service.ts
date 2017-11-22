@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Projects } from '../components/dashboard/projects/projects';
+import { MessageService } from './message.service';
 
 @Injectable()
 export class ProjectsService {
@@ -13,7 +14,7 @@ export class ProjectsService {
 	project: FirebaseObjectObservable<Projects> = null;
 	projects: FirebaseListObservable<Projects[]> = null;
 
-  constructor( private db: AngularFireDatabase ) {
+  constructor( private db: AngularFireDatabase, private m: MessageService ) {
   	this.projects = this.db.list( this.basePath );
   }
 
@@ -22,7 +23,7 @@ export class ProjectsService {
    * @return this.project
    */
   getProject(key: string): FirebaseObjectObservable<Projects> {
-  	const projectPath = `${this.basePath}/$key`;
+  	const projectPath = `${this.basePath}/${key}`;
   	this.project = this.db.object(projectPath);
   	return this.project;
   }
@@ -44,7 +45,7 @@ export class ProjectsService {
    */
   createProject( project: Projects): void{
   	this.projects.push(project)
-  		.then( error => this.handleError(error))
+  		.then( error => this.m.handleError(error))
   }
 
   /**
@@ -53,7 +54,7 @@ export class ProjectsService {
    */
   updateProject( key: string, value: any ): void {
   	this.projects.update( key, value)
-  		.catch( error => this.handleError( error ))
+  		.catch( error => this.m.handleError( error ))
   }
 
   /**
@@ -62,7 +63,7 @@ export class ProjectsService {
    */
   deleteProject( key: string ): void{
   	this.projects.remove( key )
-  		.catch( error => this.handleError(error))
+  		.catch( error => this.m.handleError(error))
   }
 
   /**
@@ -71,14 +72,7 @@ export class ProjectsService {
    */
    deleteAllProjects(): void {
    	this.projects.remove()
-   		.catch( error => this.handleError(error))
+   		.catch( error => this.m.handleError(error))
    }
-
-   /**
-	   * handleError
-	   */
-	  private handleError(error){
-	  	console.log( error );
-	  }
 
 }
