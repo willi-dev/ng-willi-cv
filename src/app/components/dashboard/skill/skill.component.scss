@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/_variables.scss';
+
+.skill{
+	
+	&-badge{
+		padding: 5px 10px; 
+		border-radius: 5px;
+		color: $white;
+		margin: 5px;
+		display: inline-block;
+
+		.badge-delete{
+			cursor: pointer;
+		}
+
+		&__primary{
+			background-color: $primary;
+		}
+
+		&__related{
+			background-color: $success;
+		}
+
+	}
+}

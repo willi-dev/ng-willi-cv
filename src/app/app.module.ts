@@ -14,6 +14,7 @@ import { ProjectsService } from './providers/projects.service';
 import { EducationService } from './providers/education.service';
 import { PublicationService } from './providers/publication.service';
 import { TrainingService } from './providers/training.service'; 
+import { SkillService } from './providers/skill.service';
 import { MessageService } from './providers/message.service';
 
 import { AngularFireModule } from 'angularfire2';
@@ -113,7 +114,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp( firebaseConfig ),
-    RouterModule.forRoot( routes ),
+    RouterModule.forRoot( routes, { useHash: true} ),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
@@ -129,6 +130,7 @@ const routes: Routes = [
     EducationService,
     PublicationService,
     TrainingService,
+    SkillService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,2 +1,144 @@
 <h1 class="display-4 dashboard-title">Main Profile</h1>
 <hr>
+
+<div *ngIf="(mainProfileList | async)?.length == 0">
+	<form>
+	  <div class="form-group">
+	    <label for="main-profile-name">Name</label>
+	    <input type="text" [(ngModel)]="mainProfile.nameProfile" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-name" placeholder="Example: Willi">
+	  </div>
+	  <div class="form-group">
+	    <label for="main-profile-job">Job Title</label>
+	    <input type="text" [(ngModel)]="mainProfile.jobTitle" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-job" placeholder="Example: Front End Developer">
+	  </div>
+		<div class="form-group">
+	  	<label for="main-profile-phone">Phone</label>
+	  	<input type="text" [(ngModel)]="mainProfile.phone" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-phone" placeholder="Example: 0857 2233 8899">
+	  </div>
+	  <div class="form-group">
+	    <label for="main-profile-address">Address</label>
+	    <textarea [(ngModel)]="mainProfile.address" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-address" rows="3"></textarea>
+	  </div>
+	  <div class="form-group">
+	  	<label for="main-profile-email">Email</label>
+	  	<input type="text" [(ngModel)]="mainProfile.email" [ngModelOptions]="{standalone: true}" class="form-control" id="mian-profile-email" placeholder="Example: willi.dev.id@gmail.com">
+	  </div>
+	  <div class="form-group">
+	  	<label for="main-profile-linkedin">Linkedin</label>
+	  	<input type="text" [(ngModel)]="mainProfile.linkedin" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-linkedin" placeholder="Example: https://www.linkedin.com/in/willidev/">
+	  </div>
+	  <div class="form-group">
+	  	<label for="main-profile-github">Github</label>
+	  	<input type="text" [(ngModel)]="mainProfile.github" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-github" placeholder="Example: https://github.com/willi-dev">
+	  </div>
+	  <div class="form-group">
+	  	<button class="btn btn-default" type="submit" (click)="createProfile()">
+	  		Submit
+	  	</button>
+	  </div>
+	</form>
+</div>
+
+<div *ngIf="(mainProfileList | async)?.length > 0">
+	<div *ngFor="let mp of mainProfileList | async">
+		<div *ngIf="formEdit">
+			<h2 class="lead">Edit Main Profile</h2>
+			<form>
+			  <div class="form-group">
+			    <label for="main-profile-name">Name</label>
+			    <input type="text" [(ngModel)]="mainProfile.nameProfile" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-name" placeholder="Example: Willi">
+			  </div>
+			  <div class="form-group">
+			    <label for="main-profile-job">Job Title</label>
+			    <input type="text" [(ngModel)]="mainProfile.jobTitle" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-job" placeholder="Example: Front End Developer">
+			  </div>
+				<div class="form-group">
+			  	<label for="main-profile-phone">Phone</label>
+			  	<input type="text" [(ngModel)]="mainProfile.phone" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-phone" placeholder="Example: 0857 2233 8899">
+			  </div>
+			  <div class="form-group">
+			    <label for="main-profile-address">Address</label>
+			    <textarea [(ngModel)]="mainProfile.address" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-address" rows="3"></textarea>
+			  </div>
+			  <div class="form-group">
+			  	<label for="main-profile-email">Email</label>
+			  	<input type="text" [(ngModel)]="mainProfile.email" [ngModelOptions]="{standalone: true}" class="form-control" id="mian-profile-email" placeholder="Example: willi.dev.id@gmail.com">
+			  </div>
+			  <div class="form-group">
+			  	<label for="main-profile-linkedin">Linkedin</label>
+			  	<input type="text" [(ngModel)]="mainProfile.linkedin" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-linkedin" placeholder="Example: https://www.linkedin.com/in/willidev/">
+			  </div>
+			  <div class="form-group">
+			  	<label for="main-profile-github">Github</label>
+			  	<input type="text" [(ngModel)]="mainProfile.github" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-github" placeholder="Example: https://github.com/willi-dev">
+			  </div>
+			  <div class="form-group">
+			  	<button class="btn btn-primary" type="submit" (click)="updateProfile(!formEdit, mp)">
+			  		Submit
+			  	</button>
+			  	<button class="btn btn-light" (click)="showFormEdit(!formEdit, mp)">
+						Cancel
+					</button>
+			  </div>
+			</form>
+		</div>
+
+		<div *ngIf="!formEdit">
+			<div class="row main-profile__row mt-md-5">
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Name</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.nameProfile}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Job Title</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.jobTitle}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Phone</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.phone}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Address</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.address}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Email</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.email}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Linkedin</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.linkedin}}</h3>
+				</div>
+
+				<div class="col-md-6 main-profile__col--left">
+					<h3>Github</h3>
+				</div>
+				<div class="col-md-6 main-profile__col--right">
+					<h3 class="font-weight-light">{{mp.github}}</h3>
+				</div>
+			</div>
+			<div class="main-profile__row-edit">
+				<button class="btn btn-default" (click)="showFormEdit(!formEdit, mp)">
+					Edit
+				</button>	
+			</div>
+		</div>
+	</div>
+</div>

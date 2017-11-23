@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../providers/auth.service';
-import { moveIn, fallIn } from '../../router.animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [moveIn(), fallIn()],
-  host: {'[@moveIn]': ''}
 })
 export class LoginComponent implements OnInit {
 

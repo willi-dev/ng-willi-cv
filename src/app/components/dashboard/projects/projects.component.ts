@@ -18,7 +18,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
   	this.projects = this.projectsService.getListProjects( { orderByKey: true } )
-  		.map( (array) => {return array.reverse()}) as FirebaseListObservable<Projects[]>;
+  		// .map( (array) => {return array.reverse()}) as FirebaseListObservable<Projects[]>;
   }
 
   createProject(){

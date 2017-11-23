@@ -1,6 +1,6 @@
 export class Mainprofile {
 	$key: string;
-	name: string;
+	nameProfile: string;
 	jobTitle: string;
 	phone: string;
 	address: string;

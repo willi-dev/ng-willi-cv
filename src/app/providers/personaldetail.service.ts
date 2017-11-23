@@ -24,7 +24,7 @@ export class PersonaldetailService {
   	return this.personalDetail;
   }
 
-  getListDetail(query:{}): FirebaseListObservable<Personaldetail[]> {
+  getListDetail( query:{} ): FirebaseListObservable<Personaldetail[]> {
   	this.personalDetails = this.db.list( this.basePath, {
   		query: query
   	});
@@ -46,7 +46,7 @@ export class PersonaldetailService {
   		.catch( error => this.m.handleError(error));
   }
 
-  deleteAllDetail(){
+  deleteAllDetail(): void{
   	this.personalDetails.remove()
   		.catch( error => this.m.handleError( error ));
   }

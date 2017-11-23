@@ -8,9 +8,9 @@ import { AuthService } from '../../providers/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  menuOpen: false;
+  menuOpen: boolean = false;
 
-  constructor( private authService: AuthService ) {}
+  constructor( public authService: AuthService ) {}
 
   ngOnInit() {
     console.log( this.authService.isLoggedIn );

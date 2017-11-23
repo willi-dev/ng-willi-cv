@@ -18,7 +18,7 @@ export class EducationsComponent implements OnInit {
 
   ngOnInit() {
   	this.educations = this.educationService.getListEducations( { orderByKey: true } )
-  		.map( (array) => { return array.reverse() }) as FirebaseListObservable<Educations[]>;
+  		// .map( (array) => { return array.reverse() }) as FirebaseListObservable<Educations[]>;
     console.log( this.educations );
   }
 

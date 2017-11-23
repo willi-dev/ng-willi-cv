@@ -19,11 +19,11 @@
                             <form #formData='ngForm' class="form" role="form" autocomplete="off" (ngSubmit)="loginEmail(formData)">
                                 <div class="form-group">
                                     <label for="useremail">Email</label>
-                                    <input type="email" class="form-control" (ngModel)="useremail" name="useremail" id="useremail" required="" placeholder="email...">
+                                    <input type="email" class="form-control" [(ngModel)]="useremail" name="useremail" id="useremail" required="" placeholder="email...">
                                 </div>
                                 <div class="form-group">
                                     <label for="userpassword">Password</label>
-                                    <input type="password" class="form-control" (ngModel)="userpassword" name="userpassword" id="userpassword" required="" placeholder="password..." autocomplete="new-password">
+                                    <input type="password" class="form-control" [(ngModel)]="userpassword" name="userpassword" id="userpassword" required="" placeholder="password..." autocomplete="new-password">
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary btn-block">Login</button>
                                 <!-- <div class="form-check small">

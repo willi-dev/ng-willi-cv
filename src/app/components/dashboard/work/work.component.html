@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label for="work-period">Period</label>
-    <input type="text" [(ngModel)]="work.periode" [ngModelOptions]="{standalone: true}" class="form-control" id="work-period" placeholder="Example: January 2016 - February 2017">
+    <input type="text" [(ngModel)]="work.period" [ngModelOptions]="{standalone: true}" class="form-control" id="work-period" placeholder="Example: January 2016 - February 2017">
   </div>
   
   <div class="form-group">
@@ -34,7 +34,7 @@
         <div class="card-body">
           <h4 class="card-title">{{w.position}}</h4>
           <h6 class="card-subtitle mb-2 text-muted">{{w.company}}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">{{w.periode}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{w.period}}</h6>
           <p class="card-text">
             {{w.description}}
           </p>

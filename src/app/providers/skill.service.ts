@@ -4,18 +4,24 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Skill } from '../components/dashboard/skill/skill';
+import { Relatedtools } from '../components/dashboard/skill/relatedtools';
 import { MessageService } from './message.service';
 
 @Injectable()
 export class SkillService {
 
 	private basePath: string = '/skill';
+  private basePathRelated: string = '/related';
 
 	skill: FirebaseObjectObservable<Skill> = null;
 	skills: FirebaseListObservable<Skill[]> = null;
 
+  relatedTool: FirebaseObjectObservable<Relatedtools> = null;
+  relatedTools: FirebaseListObservable<Relatedtools[]> = null;
+
   constructor( private db: AngularFireDatabase, private m: MessageService ) { 
   	this.skills = this.db.list(this.basePath);
+    this.relatedTools = this.db.list( this.basePathRelated );
   }
 
   getSkill( key: string ): FirebaseObjectObservable<Skill> {
@@ -49,6 +55,29 @@ export class SkillService {
   deleteAllSkill(): void {
   	this.skills.remove()
   		.catch( error => this.m.handleError( error ));
+  }
+
+  getRelatedTool( key: string ): FirebaseObjectObservable<Relatedtools> {
+    const toolPath = `${this.basePath}/${key}`;
+    this.relatedTool = this.db.object( toolPath );
+    return this.relatedTool;
+  }
+
+  getListRelatedTool(query: {}): FirebaseListObservable<Relatedtools[]> {
+    this.relatedTools = this.db.list( this.basePathRelated, {
+      query: query
+    });
+    return this.relatedTools;
+  }
+
+  createTool( relatedTools: Relatedtools ): void {
+    this.relatedTools.push( relatedTools )
+      .then( error => this.m.handleError(error));
+  }
+
+  deleteTool( key: string ): void{
+    this.relatedTools.remove( key )
+      .catch( error => this.m.handleError(error) );
   }
   
 }

@@ -1,2 +1,49 @@
 <h1 class="display-4 dashboard-title">Skill</h1>
 <hr>
+
+<div class="row">
+	<div class="col-md-6">
+		<form>
+		  <div class="form-group">
+		    <label for="skill-name">Skill</label>
+		    <input type="text" [(ngModel)]="skill.skill" [ngModelOptions]="{standalone: true}" class="form-control" id="skill-name" placeholder="Example: PHP">
+		  </div>
+		  <div class="form-group">
+		  	<button class="btn btn-primary" type="submit" (click)="createSkill()">
+		  		Add Skill
+		  	</button>
+		  </div>
+		</form>
+		<hr>
+		
+		<div *ngIf="( skills | async )?.length > 0" >
+			<span *ngFor="let s of skills | async" class="skill-badge skill-badge__primary" >
+				{{s.skill}}
+				<span class="badge badge-light badge-delete" (click)="deleteSkill(s.$key)">&times;</span>	
+			</span>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<form>
+		  <div class="form-group">
+		    <label for="skill-name">Related Development Tools</label>
+		    <input type="text" [(ngModel)]="relatedtools.relatedtools" [ngModelOptions]="{standalone: true}" class="form-control" id="skill-name" placeholder="Example: git">
+		  </div>
+		  <div class="form-group">
+		  	<button class="btn btn-success" type="submit" (click)="createTool()">
+		  		Add Related Development Tools
+		  	</button>
+		  </div>
+		</form>
+		<hr>
+
+		<div *ngIf="( relatedtoolslist | async )?.length > 0">
+			<span *ngFor="let rt of relatedtoolslist | async" class="skill-badge skill-badge__related">
+				{{ rt.relatedtools }}
+				<span class="badge badge-light badge-delete" (click)="deleteTool(rt.$key)">&times;</span>	
+			</span>
+		</div>
+		
+	</div>
+</div>
