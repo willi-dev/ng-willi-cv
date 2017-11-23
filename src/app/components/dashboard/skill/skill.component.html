@@ -19,7 +19,9 @@
 		<div *ngIf="( skills | async )?.length > 0" >
 			<span *ngFor="let s of skills | async" class="skill-badge skill-badge__primary" >
 				{{s.skill}}
-				<span class="badge badge-light badge-delete" (click)="deleteSkill(s.$key)">&times;</span>	
+				<span class="badge badge-light badge-delete" (click)="deleteSkill(s.$key)">
+					<i class="material-icons">close</i>
+				</span>	
 			</span>
 		</div>
 	</div>
@@ -41,7 +43,9 @@
 		<div *ngIf="( relatedtoolslist | async )?.length > 0">
 			<span *ngFor="let rt of relatedtoolslist | async" class="skill-badge skill-badge__related">
 				{{ rt.relatedtools }}
-				<span class="badge badge-light badge-delete" (click)="deleteTool(rt.$key)">&times;</span>	
+				<span class="badge badge-light badge-delete" (click)="deleteTool(rt.$key)">
+					<i class="material-icons">close</i>
+				</span>	
 			</span>
 		</div>
 		
