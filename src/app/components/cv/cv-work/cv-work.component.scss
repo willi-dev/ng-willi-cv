@@ -1,0 +1,39 @@
+@import '../../../../assets/scss/_variables.scss';
+.cv{
+  &-section__work-experience{
+    text-align: left;
+    .cv-block__wrapper{
+      font-family: $raleway;
+      color: $greydark;
+    }
+    .cv-block__wrapper-projects{
+      padding-left: .5rem;
+      font-size: 1.3rem;
+    }
+    .cv-block-company{
+      font-weight: $bold;
+      .duration{
+        font-weight: $normal;
+        color: $greylight-2;
+      }
+    }
+    .cv-block-project-title,
+    .cv-block-project-desc,
+    .cv-block-project-url{
+      font-size: 1.5rem;
+      color: $greylight-1;
+      font-weight: $light;
+    }
+    // .cv-block-project-title{
+    //   font-weight: $normal;
+    // }
+    .cv-block-project-title,
+    .cv-block-project-desc{
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .cv-block-project-url{
+      margin-top: 0;
+    }
+  }
+}

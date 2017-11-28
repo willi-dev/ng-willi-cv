@@ -1,0 +1,21 @@
+<div class="cv-section__block-inner cv-section__education">
+<h3 class="cv-section__block-title">Education</h3>
+  
+    <div class="list-item">
+      <div class="cv-block__wrapper cv-block__wrapper-school">
+        <h4 class="cv-block-school cv-block-text">
+          {{edu.school}}
+        </h4>
+      </div>
+      <div class="cv-block__wrapper cv-block__wrapper-eduyear">
+        <h4 class="cv-block-edu-year cv-block-text">
+          {{edu.year}}    
+        </h4>
+      </div>
+      <div v-if=" edu.department!='-' "class="cv-block__wrapper cv-block__wrapper-department">
+        <h4 class="cv-block-departement cv-block-text">
+          {{edu.department}}
+        </h4>
+      </div>
+    </div>
+</div>

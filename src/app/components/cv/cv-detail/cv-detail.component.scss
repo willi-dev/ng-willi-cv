@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/_variables.scss';
+
+.cv{
+	&-section__personal-detail{
+      text-align: right;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
+      .cv-block__wrapper{
+        font-family: $raleway;
+        color: $greylight-2;
+      }
+      .cv-block-placedatebirth, 
+      .cv-block-gender, 
+      .cv-block-language, 
+      .cv-block-religion{
+        font-weight: $light;
+        line-height: .8;
+        .value{
+          font-weight: $bold;
+          color: $greydark;
+        }
+      }
+    }
+}

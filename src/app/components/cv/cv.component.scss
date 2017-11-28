@@ -1,0 +1,32 @@
+@import '../../../assets/scss/_variables.scss';
+
+.cv{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .cv-block-text{
+      font-size: 1.6rem;
+    }
+
+    &-section__block{
+      &--left{
+        .cv-section__block-title{
+          text-align: right;
+          @media screen and (max-width: 767px){
+            text-align: left;
+          }
+        }
+      }
+      &--right{
+        .cv-section__block-title{
+          text-align: left;
+        }
+      }
+
+      &-title{
+        font-family: $bebasneue;
+        color: $greylight-3;
+        border-bottom: 1px dashed $greylight-2;
+        padding-bottom: 1rem;
+      }
+    }
+  }

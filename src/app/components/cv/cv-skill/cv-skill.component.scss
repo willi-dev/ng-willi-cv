@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/_variables.scss';
+
+.cv{
+    &-section__skills{
+      text-align: right;
+      font-family: $raleway;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
+      .cv-block__wrapper{
+        font-family: $raleway;
+        color: $black;
+      }
+      .cv-block-text{
+        font-weight: $light;
+        line-height: 1;
+      }
+      .cv-block-skills-main{
+        margin-bottom: 0;
+      }
+      .cv-block-skills-related-title{
+        color: $greylight-2;
+        font-size: 2.1rem;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .cv-block-skills-related{
+        margin-top: 0;
+      }
+    }
+  }

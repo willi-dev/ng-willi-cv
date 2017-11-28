@@ -1,0 +1,28 @@
+@import '../../../../assets/scss/_variables.scss';
+ .cv{
+    &-section__education{
+      text-align: right;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
+      .cv-block__wrapper{
+        font-family: $raleway;
+        color: $black;
+      }
+      .cv-block-school{
+        font-weight: $bold;
+
+      }
+      .cv-block-edu-year,
+      .cv-block-departement{
+        font-weight: $light;
+        line-height: .8;
+      }
+      .cv-block-edu-year{
+        color: $greylight-2;
+      }
+      .cv-block-departement{
+        color: $black;
+      }
+    }
+  }
