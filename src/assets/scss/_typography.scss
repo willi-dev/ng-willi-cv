@@ -1,0 +1,14 @@
+// import raleway font
+// source google fonts 
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+
+// import bebas neue font
+// source WEBFONTS
+@font-face {
+	font-family: 'BebasNeue';
+	src: url('./assets/fonts/348C6F_0_0.eot');
+	src: url('./assets/fonts/348C6F_0_0.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/348C6F_0_0.woff2') format('woff2'),
+		url('./assets/fonts/348C6F_0_0.woff') format('woff'),
+		url('./assets/fonts/348C6F_0_0.ttf') format('truetype');
+}

@@ -23,10 +23,8 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { CvComponent } from './components/cv/cv.component';
 import { ProjectsComponent } from './components/dashboard/projects/projects.component';
 import { WorkComponent } from './components/dashboard/work/work.component';
 import { TrainingComponent } from './components/dashboard/training/training.component';
@@ -35,6 +33,17 @@ import { PublicationComponent } from './components/dashboard/publication/publica
 import { SkillComponent } from './components/dashboard/skill/skill.component';
 import { PersonalDetailComponent } from './components/dashboard/personal-detail/personal-detail.component';
 import { MainProfileComponent } from './components/dashboard/main-profile/main-profile.component';
+
+
+import { CvComponent } from './components/cv/cv.component';
+import { CvSkillComponent } from './components/cv/cv-skill/cv-skill.component';
+import { CvProfileComponent } from './components/cv/cv-profile/cv-profile.component';
+import { CvDetailComponent } from './components/cv/cv-detail/cv-detail.component';
+import { CvTrainingComponent } from './components/cv/cv-training/cv-training.component';
+import { CvEducationComponent } from './components/cv/cv-education/cv-education.component';
+import { CvPublicationComponent } from './components/cv/cv-publication/cv-publication.component';
+import { CvWorkComponent } from './components/cv/cv-work/cv-work.component';
+import { CvProjectComponent } from './components/cv/cv-project/cv-project.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBMGKToIWVhqy8ITCz3M2Im3ZFO3-9RZqc',
@@ -96,7 +105,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     DashboardComponent,
     LoginComponent,
     CvComponent,
@@ -107,7 +115,16 @@ const routes: Routes = [
     PublicationComponent,
     SkillComponent,
     PersonalDetailComponent,
-    MainProfileComponent
+    MainProfileComponent,
+    
+    CvSkillComponent,
+    CvProfileComponent,
+    CvDetailComponent,
+    CvTrainingComponent,
+    CvEducationComponent,
+    CvPublicationComponent,
+    CvWorkComponent,
+    CvProjectComponent,
   ],
   imports: [
     BrowserModule,

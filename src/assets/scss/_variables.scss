@@ -1,6 +1,21 @@
 // $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+// variables of color
 
 $black : #000000;
 $white : #ffffff;
-$primary: #007bff;
-$success: #28a745;
+$primary : #007bff;
+$success : #28a745;
+$greydark : #333333;
+$greylight-1 : #898989;
+$greylight-2 : #AEAEAE;
+$greylight-3 : #8D8D8E;
+ 
+
+// variables of weight font
+$light:     300;
+$normal:    400;
+$bold:      700;
+
+// variables of fonts
+$raleway:   'Raleway', sans-serif;
+$bebasneue:   'BebasNeue', sans-serif;
