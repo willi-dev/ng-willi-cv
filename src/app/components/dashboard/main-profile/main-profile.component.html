@@ -32,7 +32,7 @@
 	  	<input type="text" [(ngModel)]="mainProfile.github" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-github" placeholder="Example: https://github.com/willi-dev">
 	  </div>
 	  <div class="form-group">
-	  	<button class="btn btn-default" type="submit" (click)="createProfile()">
+	  	<button class="btn btn-primary" type="submit" (click)="createProfile()">
 	  		Submit
 	  	</button>
 	  </div>
@@ -73,7 +73,7 @@
 			  	<input type="text" [(ngModel)]="mainProfile.github" [ngModelOptions]="{standalone: true}" class="form-control" id="main-profile-github" placeholder="Example: https://github.com/willi-dev">
 			  </div>
 			  <div class="form-group">
-			  	<button class="btn btn-primary" type="submit" (click)="updateProfile(!formEdit, mp)">
+			  	<button class="btn btn-primary" type="submit" (click)="updateProfile(mp.$key, mainProfile)">
 			  		Submit
 			  	</button>
 			  	<button class="btn btn-light" (click)="showFormEdit(!formEdit, mp)">
@@ -136,7 +136,7 @@
 			</div>
 			<div class="main-profile__row-edit">
 				<button class="btn btn-default" (click)="showFormEdit(!formEdit, mp)">
-					Edit
+					<i class="material-icons">mode_edit</i>
 				</button>	
 			</div>
 		</div>

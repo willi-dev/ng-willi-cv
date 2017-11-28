@@ -1,5 +1,5 @@
 
-<h1 class="display-4 dashboard-title">Educations</h1>
+<h1 class="display-4 dashboard-title">Education</h1>
 <hr>
 
 <form>
@@ -17,7 +17,7 @@
     <textarea [(ngModel)]="education.description" [ngModelOptions]="{standalone: true}" class="form-control" id="work-description" rows="3"></textarea>
   </div>
   <div class="form-group">
-  	<button class="btn btn-default" type="submit" (click)="createEducation()">
+  	<button class="btn btn-primary" type="submit" (click)="createEducation()">
   		Submit
   	</button>
   </div>
@@ -42,7 +42,9 @@
       <td>{{e.period}}</td>
       <td>{{e.description}}</td>
       <td>
-        
+        <button class="btn btn-warning" (click)="deleteEducation(e.$key)">
+          <i class="material-icons">delete</i>
+        </button>
       </td>
     </tr>
   </tbody>

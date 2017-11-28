@@ -18,7 +18,7 @@
   </div>
   
   <div class="form-group">
-  	<button class="btn btn-default" type="submit" (click)="createPublication()">
+  	<button class="btn btn-primary" type="submit" (click)="createPublication()">
   		Submit
   	</button>
   </div>
@@ -43,7 +43,7 @@
       <td>{{p.description}}</td>
       <td>{{p.link}}</td>
       <td>
-        
+        <button class="btn btn-warning" (click)="deletePublication(p.$key)"><i class="material-icons">delete</i></button>
       </td>
     </tr>
   </tbody>
