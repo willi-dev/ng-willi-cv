@@ -22,7 +22,7 @@ export class SkillComponent implements OnInit {
 
   ngOnInit() {
   	this.skills = this.skillService.getListSkill({ orderByKey: true });
-  	this.relatedtoolslist = this.skillService.getListRelatedTool( { orderByKey: true } );
+  	this.relatedtoolslist = this.skillService.getListRelatedTool({ orderByKey: true});
   }
 
   createSkill(){

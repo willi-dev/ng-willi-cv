@@ -30,7 +30,7 @@ export class SkillService {
   	return this.skill;
   }
 
-  getListSkill(query: {}): FirebaseListObservable<Skill[]> {
+  getListSkill(query = {}): FirebaseListObservable<Skill[]> {
   	this.skills = this.db.list( this.basePath, {
   		query: query 
   	});
@@ -63,9 +63,9 @@ export class SkillService {
     return this.relatedTool;
   }
 
-  getListRelatedTool(query: {}): FirebaseListObservable<Relatedtools[]> {
+  getListRelatedTool(q = {}): FirebaseListObservable<Relatedtools[]> {
     this.relatedTools = this.db.list( this.basePathRelated, {
-      query: query
+      query: q
     });
     return this.relatedTools;
   }

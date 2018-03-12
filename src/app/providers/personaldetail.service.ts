@@ -24,7 +24,7 @@ export class PersonaldetailService {
   	return this.personalDetail;
   }
 
-  getListDetail( query:{} ): FirebaseListObservable<Personaldetail[]> {
+  getListDetail( query = {} ): FirebaseListObservable<Personaldetail[]> {
   	this.personalDetails = this.db.list( this.basePath, {
   		query: query
   	});

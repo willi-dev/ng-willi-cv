@@ -33,9 +33,9 @@ export class EducationService {
    * @return this.educations
    */
   getListEducations(query={}): FirebaseListObservable<Educations[]> {
-  	this.educations = this.db.list(this.basePath, {
-  		query: query
-  	});
+  	this.educations = this.db.list(this.basePath, { 
+      query: query 
+    });
   	return this.educations;
   }
 

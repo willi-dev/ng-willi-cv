@@ -34,8 +34,8 @@ export class ProjectsService {
    */
   getListProjects(query = {}): FirebaseListObservable<Projects[]> {
   	this.projects = this.db.list(this.basePath, {
-  		query: query
-  	});
+      query : query
+    });
   	return this.projects;
   }
 

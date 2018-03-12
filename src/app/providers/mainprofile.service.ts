@@ -24,7 +24,7 @@ export class MainprofileService {
   	return this.mainProfile;
   }
 
-  getListProfile( query: {} ): FirebaseListObservable<Mainprofile[]> {
+  getListProfile( query = {} ): FirebaseListObservable<Mainprofile[]> {
   	this.mainProfileList = this.db.list( this.basePath, {
   		query: query
   	});
