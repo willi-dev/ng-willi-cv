@@ -1,3 +1,4 @@
+
 <div class="container-fluid" [class.container-hidden]="menuOpen">
 	<div class="row">
 		<div class="side-menu side-menu__offcanvas" [class.side-menu--open]="menuOpen">
@@ -34,7 +35,7 @@
 
 		<div class="col-md-12 main-content" [class.main-content--resize]="menuOpen">
 			<span class="open-menu	" (click)="menuOpen = !menuOpen;">
-			<i class="material-icons">menu</i>
+			<i class="material-icons">{{menuOpen ? 'close' : 'menu'}}</i>
 			</span>
 
 			<router-outlet></router-outlet>
